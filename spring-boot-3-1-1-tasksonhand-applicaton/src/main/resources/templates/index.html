@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>SpringBoot Tasks On Hand Application</h1>
+        <hr/>
+
+        <table class="table table-borderd table-striped">
+            <thread>
+                <tr>
+                    <th>Task</th>
+                    <th>Category</th>
+                    <th>Id</th>
+                    <th>Description</th>
+                    <th>Completed?</th>
+                    <th>State</th>
+                    <th>Created</th>
+                    <th>Last Update</th>
+
+                </tr>
+            </thread>
+            <tbody>
+                <tr th:each ="item: ${taskItem}">
+                    <td>&nbsp;</td>
+                    <td th:text="${item.Category}"></td>
+                    <td th:text="${item.Id}"></td>
+                    <td th:text="${item.Description}"></td>
+                    <td>
+                        <span th:if="${item.isDone} == true" th:text="Yes"/>
+                        <span th:unless="${item.isDone} == false" th:text="No"/>
+
+                    </td>
+                    <td th:text="${item.currentState}"></td>
+                    <td th:text="${item.whenCreated}"></td>
+                    <td th:text="${item.lastUpdate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
