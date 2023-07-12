@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-SpringBoot311TasksonhandApplicatonApplication<spring-boot-3-1-1-tasksonhand-applicaton>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.example.springboot311tasksonhandapplicaton.SpringBoot311TasksonhandApplicatonApplication",
+      "projectName": "spring-boot-3-1-1-tasksonhand-applicaton",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

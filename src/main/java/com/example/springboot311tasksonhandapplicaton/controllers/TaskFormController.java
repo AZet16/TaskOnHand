@@ -2,11 +2,15 @@ package com.example.springboot311tasksonhandapplicaton.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.springboot311tasksonhandapplicaton.models.TaskItem;
-import com.example.springboot311tasksonhandapplicaton.repositories.TaskItemRepo;
 import com.example.springboot311tasksonhandapplicaton.services.TaskItemService;
+
+import ch.qos.logback.core.model.Model;
+import jakarta.validation.Valid;
 
 @Controller
 public class TaskFormController {
@@ -18,16 +22,15 @@ public class TaskFormController {
         return "generating-new-task";
     }
     
-    @GetMapping("/new-task")
+    @PostMapping("/newtask") 
     public String createNewTask(@Valid TaskItem taskItem, BindingResult result, Model model) {
         TaskItem task1 = new TaskItem();
         task1.setDescription(taskItem.getDescription());
         //task1.setCategory(taskItem.getCategory());
         //task1.setCurrentState(taskItem.getCurrentState());
-        //task1.setIsDone(taskItem.getIsDone());
+        task1.setIsDone(taskItem.getIsDone());
 
-        taskItemService.save(task1);
-        
+        taskItemService.save(taskItem);
         return "redirect:/";
 
     }
