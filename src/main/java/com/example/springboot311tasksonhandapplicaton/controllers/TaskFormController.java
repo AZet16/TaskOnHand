@@ -22,7 +22,7 @@ public class TaskFormController {
         return "generating-new-task";
     }
     
-    @PostMapping("/newtask") 
+     @PostMapping("/newtask") 
     public String createNewTask(@Valid TaskItem taskItem, BindingResult result, Model model) {
         TaskItem task1 = new TaskItem();
         task1.setDescription(taskItem.getDescription());

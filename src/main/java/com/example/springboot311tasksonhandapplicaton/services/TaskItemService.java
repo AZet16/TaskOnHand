@@ -24,7 +24,7 @@ public class TaskItemService {
     }
 
     public TaskItem save(TaskItem taskItem){
-        if(taskItem.getId()==null){
+        if(taskItem.getId()== null){
             taskItem.setWhenCreated(Instant.now());
         }
         taskItem.setLastUpdate(Instant.now());
