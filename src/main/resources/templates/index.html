@@ -36,7 +36,7 @@
             <td th:text="${item.description}"></td>
             <td>
               <span th:if="${item.isDone} == true" th:text="Yes" />
-              <span th:unless="${item.isDone} == false" th:text="No" />
+              <span th:unless="${item.isDone} == true" th:text="No" />
             </td>
             <td th:text="${item.currentState}"></td>
             <td th:text="${item.whenCreated}"></td>

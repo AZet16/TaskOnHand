@@ -21,7 +21,7 @@ public class TaskFormController {
     private TaskItemService taskItemService;
 
     @GetMapping("/add-task")
-    public String createForm(TaskItem taskItem) {
+    public String createForm(TaskItem taskItem) { //this name is used in following html
         return "generating-new-task";
     }
     
