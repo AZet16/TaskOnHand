@@ -16,7 +16,7 @@ public class HomeController {
     public ModelAndView index(){
         //ModelAndView is a spring modek UI object
         ModelAndView modelAndView = new ModelAndView("index"); //index is a view name is the name of html file
-        modelAndView.addObject("taskItem",taskItemService.getAll()); //taskItem in attribute name
+        modelAndView.addObject("taskItems",taskItemService.getAll()); //taskItem in attribute name
         return modelAndView;
     }
 }

@@ -20,25 +20,41 @@
           </p>
         </div>
         <div class="col-6">
-          <h2>Create New Task</h2>
+          <h2>Edit My Task</h2>
           <form
             action="#"
-            th:action="@{/newtask}"
-            th:object="${taskItems}"
+            th:action="@{/update/{id}(id=${task.id})}"
+            th:object="${task}"
             method="POST"
           >
             <div class="form-group">
-              <label for="description">Description</label>
-              <input
-                class="form-control"
-                type="text"
-                th:field="*{description}"
-                id="description"
-                placeholder="Description"
-              />
+              <div class="col-6">
+                <label for="description">Description</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  th:field="*{description}"
+                  id="description"
+                  placeholder="Description"
+                />
+              </div>
+
+              <div class="col-6">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  th:field="*{isDone}"
+                  th:checked="${isDone} == true"
+                  id="isDone"
+                />
+                <label class="form-check-label" for="isDone">Completed?</label>
+              </div>
+
+              <input type="hidden" th:field="*{whenCreated}" />
+              <input type="hidden" th:field="*{lastUpdate}" />
 
               <button type="submit" class="btn btn-outline-success">
-                <i class="bi bi-lus-square-fill"></i> Add Task
+                <i class="bi bi-lus-square-fill"></i> Update
               </button>
             </div>
           </form>
